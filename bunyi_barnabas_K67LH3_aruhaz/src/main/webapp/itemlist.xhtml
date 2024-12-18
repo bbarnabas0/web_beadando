@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:sec="http://www.springframework.org/security/tags">
+<ui:composition template="layout.xhtml">
+    <ui:define name="content">
+        <h:form id="itmForm">
+            <p:panel header="Item info" id="itmInfoPnl">
+                <h:panelGrid columns="2">
+                    <p:outputLabel for="name" value="Item name: "/>
+                    <p:inputText id="name" size="40"
+                                 value="#{itmlController.itmUiTO.itmName}" required="true"
+                                 requiredMessage="Please enter item name "/>
+
+                    <p:outputLabel for="itmcode" value="Item code: "/>
+                    <p:inputText id="itmcode" required="true"
+                                 value="#{itmlController.itmUiTO.itmCode}" size="8"
+                                 requiredMessage="Please enter item code">
+                        <f:validator validatorId="customCodeValidator"/>
+                    </p:inputText>
+
+                    <p:outputLabel for="itmprice" value="Unit price (HUF) "/>
+                    <p:inputText id="itmprice" size="8" required="true"
+                                 value="#{itmlController.itmUiTO.itmPrice}">
+                        <p:ajax event="blur" update="itmprice"/>
+                    <f:validator validatorId="customPriceValidator"/>
+                    </p:inputText>
+
+                    <p:outputLabel for="itmemail" value="Supplier email : "/>
+                    <p:inputText id="itmemail"
+                                 value="#{itmlController.itmUiTO.emailId}" size="40"
+                                 required="true" label="Email Address">
+                        <f:validator validatorId="customEmailValidator"/>
+                    </p:inputText>
+
+                    <p:outputLabel for="itmcateg" value="Category "/>
+                    <p:selectOneMenu id="itmcateg"
+                                     value="#{itmlController.itmUiTO.categoryUITO}"
+                                     style="width:200px" converter="#{categConverter}">
+                        <f:selectItems value="#{itmlController.categoryUiToList}"
+                                       var="categoryUITO" itemLabel="#{categoryUITO.categName}"
+                                       itemValue="#{categoryUITO}"/>
+
+                    </p:selectOneMenu>
+                    <p:commandButton value="#{itmlController.actionLabel}"
+                                     action="#{itmlController.doSaveInfoItml}" update="itmlist itmInfoPnl">
+                    </p:commandButton>
+                    <ui:remove>
+                        <h:commandButton value="#{itmlController.actionLabel}"
+                                         action="#{itmlController.doSaveInfoItml}">
+                            <f:ajax execute="itmForm" render="itmlist itmInfoPnl"/>
+                        </h:commandButton>
+                    </ui:remove>
+                </h:panelGrid>
+            </p:panel>
+            <p:panel header="Item List" id="itmlist">
+                <p:dataTable id="table" var="itm"
+                             value="#{itmlController.itmUiToList}">
+                    <p:column>
+                        <f:facet name="header"># Item ID</f:facet>
+                        <h:outputText value="#{itm.itmId}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Item name</f:facet>
+                        <h:outputText value="#{itm.itmName}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Item code</f:facet>
+                        <h:outputText value="#{itm.itmCode}"/>
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">Unit price </f:facet>
+                        <h:outputText value="#{itm.itmPrice}">
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">Supplier email </f:facet>
+                        <h:outputText value="#{itm.emailId}">
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Category </f:facet>
+                        <h:outputText value="#{itm.categoryUITO.categName}"/>
+                    </p:column>
+                    <p:column id="action">
+                        <f:facet name="header">Action</f:facet>
+                        <h:commandLink value="Edit"
+                                       action="#{itmlController.editItem(itm)}">
+                            <f:ajax execute="action" render="itmForm"/>
+                        </h:commandLink> /
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                            <h:commandLink value="Delete"
+                                           action="#{itmlController.deleteItem(itm)}">
+                                <f:ajax execute="action" render="table"/>
+                            </h:commandLink>
+                        </sec:authorize>
+                    </p:column>
+
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

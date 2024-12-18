@@ -1,0 +1,17 @@
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\entity\DepartmentDTO.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\entity\ItemDTO.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\logging\loggingAspect.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\mbean\ItemController.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\repositry\DepartmentRepo.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\repositry\ItemRepo.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\service\DepartmentService.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\service\impl\DepartmentServiceImpl.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\service\impl\ItemServiceImpl.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\service\ItemService.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\SpringJsfApplication.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\uito\DepartmentUITO.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\uito\ItemUITO.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\utills\DeptConverter.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\utills\EmailValidator.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\utills\JsfSpringCurd.java
+D:\01_egyetem\02_webfejlesztés\01_beadando\jsf-spring-boot-integration-master-pf14-java21\src\main\java\hu\unideb\inf\crud\utills\SecurityConfig.java
